@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 22 22">
+        <defs>
+          <style>
+            .cursor-color {
+              fill:rgb(255, 255, 0); 
+            }
+          </style>
+        </defs>
+    <circle class='cursor-color' cx="7" cy="7" r="7" transform="translate(4 4)"/>
+</svg>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="initial-scale = 1, user-scalable = no" />
+
+        <link href="./css/normalize.css" rel="stylesheet" type="text/css" />
+        <link href="./css/master.css" rel="stylesheet" type="text/css" />
+        <link href="./css/chart.css" rel="stylesheet" type="text/css" />
+
+        <script src="./annotations/standAloneAnnotations.js"></script>
+
+        <style>
+            @keyframes loading {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 0.5;
+                    filter: alpha(opacity=50);
+                }
+            }
+
+            #loading {
+                position: absolute;
+                top: 20%;
+                text-align: center;
+                width: 100%;
+                text-transform: uppercase;
+                transition: 0.3s opacity ease-in-out;
+                opacity: 1;
+            }
+
+            #loading div {
+                animation: loading 0.777s ease 0s infinite alternate;
+                opacity: 0;
+                font-size: 2rem;
+                font-weight: 700;
+                color: rgba(255, 255, 255, 0.698);
+            }
+        </style>
+    </head>
+
+    <body>
+        <section id="content-area">
+            <div class="title-wrapper bold p-50">ROAD TO 270</div>
+
+            <div id="main-page-content">
+                <!-- chart -->
+                <section class="chart-wrapper">
+                    <div id="loading">
+                        <div>Loading...</div>
+                    </div>
+                    <div id="chart">
+                        <leaveHere>
+                            <!-- THE HIDDEN POPUS ARE FOR CALCULATING WIDTH/HEIGHT... 
+                                because I'm using foreign objects and responsive screens...
+                                so this is a workaround. I've also used divs instead of FO's, but then the zoom in 
+                                animation is applied to the parent div of the SVG and is not as smooth -->
+                        </leaveHere>
+                    </div>
+                </section>
+                <!-- end chart -->
+            </div>
+        </section>
+    </body>
+
+    <!-- external library -->
+    <!-- <script src="./data/president_county_candidate.csv"></script> -->
+    <script src="./js/d3.min.js"></script>
+    <script src="./js/topojson.min.js"></script>
+
+    <script src="./js/d3-geo-projection.v2.min.js"></script>
+
+    <script src="./js/usStates.js"></script>
+
+    <script src="./data/popups.js"></script>
+    <script src="./js/drawMap.js"></script>
+
+    <script>
+        async function getElectionData() {
+            const res = await fetch('./data/president_county_candidate.csv');
+            const rawText = await res.text();
+
+            const electionResults = [];
+            const keys = rawText.split('\n')[0].split(',');
+            rawText
+                .split('\n')
+                .slice(1)
+                .forEach((row) => {
+                    const item = {};
+                    keys.forEach((key, i) => {
+                        item[key] = row.split(',')[i];
+                    });
+                    electionResults.push(item);
+                });
+
+            return electionResults;
+        }
+
+        function getStateResults(electionResultsData) {
+            // incoming data are objects are the counties of every state in the US...
+            // {
+            //     candidate: 'Donald Trump'; county: 'Boxborough'; party: 'REP'; state: 'Massachusetts';
+            //     total_votes: '786'; won: 'False';
+            // }
+
+            const stateResults = []; // final ouput
+
+            const allStatesInData = []; // get all states in data (no duplicates)
+            electionResultsData.forEach((d) => {
+                if (allStatesInData.includes(d.state)) null;
+                else {
+                    if (d.state !== '') allStatesInData.push(d.state);
+                }
+            });
+
+            allStatesInData.forEach((state) => {
+                const dataForCurrentState = electionResultsData.filter((d) => d.state === state);
+
+                const candidatesVotedForInThisState = []; // get all states in data (no duplicates)
+                dataForCurrentState.forEach((d) => {
+                    if (candidatesVotedForInThisState.includes(d.candidate)) null;
+                    else {
+                        if (d.candidate !== '') candidatesVotedForInThisState.push(d.candidate);
+                    }
+                });
+
+                const countyItem = {};
+                candidatesVotedForInThisState.forEach((person) => {
+                    const stateCountiesForThisPerson = dataForCurrentState.filter(
+                        (d) => d.candidate === person
+                    );
+
+                    let totalVotes = 0;
+                    const thisCandidate = stateCountiesForThisPerson.forEach((county) => {
+                        totalVotes += Number(county.total_votes);
+                    });
+
+                    countyItem[person] = totalVotes; // add the candidate and votes
+                });
+
+                const candidateKeys = Object.keys(countyItem);
+                const voteValues = Object.values(countyItem);
+                const maxVotes = d3.max(voteValues);
+
+                const winner = candidateKeys[voteValues.indexOf(maxVotes)];
+
+                stateResults.push({ state: state, winner: winner, ...countyItem });
+            });
+
+            return stateResults;
+        }
+        //*************************************************************************************************//
+        //*************************************************************************************************//
+        let usMap;
+
+        async function makeMap() {
+            const electionResults = await getElectionData();
+            const stateResults = getStateResults(electionResults);
+            usMap = new drawMap('chart', electionResults, stateResults);
+        }
+
+        makeMap();
+
+        // Redraw based on the new size whenever the browser window is resized.
+        window.addEventListener('resize', () => usMap.redraw());
+    </script>
+</html>

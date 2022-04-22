@@ -1,0 +1,220 @@
+.terq {
+    color: rgba(0, 174, 169, 1);
+}
+
+.background-terq {
+    background-color: rgba(0, 174, 169, 1);
+}
+
+.blue {
+    color: rgba(0, 156, 220, 1);
+}
+
+.background-blue {
+    background-color: rgba(0, 156, 220, 1);
+}
+
+.background-dark-blue {
+    background-color: rgba(0, 94, 155, 1);
+}
+
+.background-light-blue {
+    background-color: rgba(121, 208, 224, 1);
+}
+
+.background-grey {
+    background-color: rgba(226, 225, 218, 1);
+}
+
+.land {
+    fill: rgba(214, 214, 214, 0.5);
+}
+
+.borders {
+    stroke-width: 1px;
+    fill: none;
+}
+
+.ma-circle {
+    cursor: pointer;
+}
+
+#chart {
+    flex-grow: 1;
+    opacity: 1;
+    transition: width 1s ease-in-out, background-color 0.3s ease-in-out;
+    background-color: none;
+    user-select: none;
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* IE10+/Edge */
+    transform-origin: center center;
+    transition: 2s ease-in-out transform;
+}
+
+#chart svg {
+    overflow: visible;
+}
+
+.revenue-exp-text-container {
+    cursor: pointer;
+}
+
+.no-pointer-events {
+    pointer-events: none;
+}
+
+.active-content {
+    opacity: 1;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.items {
+    pointer-events: none;
+}
+
+.visible .items {
+    pointer-events: all;
+}
+
+
+.visible {
+    opacity: 1 !important;
+    pointer-events: all !important;
+}
+
+.close-hover:hover {
+    transform: scale(1.1);
+}
+
+.close-hover {
+    z-index: 4;
+    transform: scale(1);
+    font-size: clamp(8px, 1vw, 13px);
+    -webkit-text-stroke: thin;
+    transition: 0.3s all ease-in-out;
+    cursor: pointer;
+    position: absolute;
+    right: 7px;
+    top: 6px;
+}
+
+.state-item button {
+    position: absolute;
+    right: 12px;
+    font-weight: 500;
+    color: #008e77;
+    transition: 0.4s all ease-in-out;
+    width: 28px;
+    height: 15px;
+    display: flex;
+    border-radius: 10px;
+    border: 0 solid transparent;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1px;
+    padding-right: 1px;
+}
+
+.state-item button.selected {
+    color: #d91943;
+}
+
+.state-item {
+    transition: all 0.3s ease-in-out;
+}
+
+.state-item:hover,
+.state-item.active {
+    background-color: rgba(123, 208, 226, 0.2);
+    font-weight: 700;
+}
+
+.sh-row div {
+    padding: 60px 0px;
+}
+
+.state-popup,
+.hidden-popup {
+    transition: 0.5s all ease-in-out;
+    background-color: white;
+    padding-bottom: clamp(8px, 1vw, 14px);
+    padding-left: clamp(7px, 1vw, 14px);
+    padding-top: clamp(7px, 0.8vw, 12px);
+    padding-right: clamp(10px, 1.2vw, 30px);
+    border-radius: 3px;
+    box-shadow: 2px 7px 15px #204d604d;
+    font-size: clamp(6px, 0.5vw, 8px);
+    letter-spacing: 0.22px;
+    z-index: 100;
+    /* opacity: 0; */
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.hidden-popup {
+    width: fit-content;
+    position: absolute;
+
+    opacity: 0;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.hidden-popup::after {
+    content: '';
+    position: absolute;
+    left: 99%;
+    top: 50%;
+    margin-top: -0.45px;
+    width: 0;
+    height: 0;
+    border-left: 9px solid white;
+    border-bottom: 9px solid transparent;
+    border-top: 9px solid transparent;
+    clear: both;
+}
+
+.popup-header {
+    color: #363636;
+    letter-spacing: 0.25px;
+}
+
+.state-popup span {
+    color: #009cdc;
+    cursor: pointer;
+}
+
+.white-arrow {
+    fill: white;
+    stroke: none;
+    transition: 0.5s all ease-in-out;
+    pointer-events: none;
+    opacity: 0;
+}
+
+@media (max-width: 1200px) {
+
+    .blue-area {
+        padding: 2px;
+        margin: 2px 0;
+    }
+
+    .popup-subline {
+        margin-top: 4px;
+        margin-bottom: 0px;
+    }
+}
+
+.p-chart-circle {
+    width: clamp(5px, 1vw, 13px);
+    height: clamp(5px, 1vw, 13px);
+    border-radius: 10px;
+    margin-right: 4%;
+}

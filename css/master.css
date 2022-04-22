@@ -1,0 +1,363 @@
+@font-face {
+    font-family: 'AvenirCon';
+    src: url(./fonts/AvenirNextLTCom-Cn.ttf) format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AvenirCon';
+    src: url(./fonts/AvenirNextLTCom-DemiCn.ttf) format('truetype');
+    font-weight: 700;
+    font-style: demi;
+}
+
+@font-face {
+    font-family: 'AvenirCon';
+    src: url(./fonts/AvenirNextLTCom-BoldCn.ttf) format('truetype');
+    font-weight: 900;
+    font-style: bold;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('./fonts/AvenirNextLTCom-Regular.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('./fonts/AvenirNextLTCom-Demi.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('./fonts/AvenirNextLTCom-Bold.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Avenir;
+    font-size: 1em;
+    line-height: 1.4;
+    background: #ccc;
+    color: #000;
+}
+
+a {
+    text-decoration: none;
+}
+
+section {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+div {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.bold {
+    font-weight: 900;
+}
+
+.demi {
+    font-weight: 700;
+}
+/* **************************** */
+/* FONT SIZES */
+/* **************************** */
+.p-8 {
+    font-size: clamp(4px, 0.5vw, 8px);
+    line-height: 1.15;
+}
+
+.p-10 {
+    font-size: clamp(5px, 0.625vw, 10px);
+    line-height: 1.15;
+}
+
+.p-12 {
+    font-size: clamp(6px, 0.75vw, 12px);
+    line-height: 1.25;
+}
+
+.p-14 {
+    font-size: clamp(7px, 0.875vw, 14px);
+    line-height: 1.25;
+}
+
+.p-16 {
+    font-size: clamp(8px, 1vw, 16px);
+    line-height: 1.25;
+}
+
+.p-18 {
+    font-size: clamp(9px, 1.125vw, 18px);
+    line-height: 1.25;
+}
+
+.p-20 {
+    font-size: clamp(9px, 1.25vw, 20px);
+    line-height: 1.25;
+}
+
+.p-22 {
+    font-size: clamp(9px, 1.375vw, 22px);
+    line-height: 1.25;
+}
+
+.p-24 {
+    font-size: clamp(10px, 1.5vw, 24px);
+    line-height: 1.25;
+}
+
+.p-26 {
+    font-size: clamp(10px, 1.625vw, 26px);
+    line-height: 1.25;
+}
+
+.p-28 {
+    font-size: clamp(11px, 1.75vw, 28px);
+    line-height: 1.25;
+}
+
+.p-30 {
+    font-size: clamp(11px, 1.875vw, 30px);
+    line-height: 1.25;
+}
+
+.p-32 {
+    font-size: clamp(11px, 2vw, 32px);
+    line-height: 1.25;
+}
+
+.p-34 {
+    font-size: clamp(11px, 2.125vw, 34px);
+    line-height: 1.25;
+}
+
+.p-36 {
+    font-size: clamp(11px, 2.25vw, 36px);
+    line-height: 1.25;
+}
+
+.p-38 {
+    font-size: clamp(11px, 2.375vw, 38px);
+    line-height: 1.25;
+}
+
+.p-40 {
+    font-size: clamp(12px, 2.5vw, 40px);
+    line-height: 1.25;
+}
+
+.p-42 {
+    font-size: clamp(12px, 2.625vw, 42px);
+    line-height: 1.25;
+}
+
+.p-44 {
+    font-size: clamp(12px, 2.75vw, 44px);
+    line-height: 1.25;
+}
+
+.p-46 {
+    font-size: clamp(13px, 2.875vw, 46px);
+    line-height: 1.25;
+}
+
+.p-48 {
+    font-size: clamp(13px, 3vw, 48px);
+    line-height: 1.25;
+}
+
+.p-50 {
+    font-size: clamp(13px, 3.125vw, 50px);
+    line-height: 1.25;
+}
+
+/* **************************** */
+/* LETTER SPACING */
+/* **************************** */
+
+@media (max-width: 1400px) {
+    .p-8 {
+        font-size: 0.5vw;
+    }
+
+    .p-10 {
+        font-size: 0.625vw;
+    }
+
+    .p-12 {
+        font-size: 0.75vw;
+    }
+
+    .p-14 {
+        font-size: 0.875vw;
+    }
+
+    .p-16 {
+        font-size: 1vw;
+    }
+
+    .p-18 {
+        font-size: 1.125vw;
+    }
+
+    .p-20 {
+        font-size: 1.25vw;
+    }
+
+    .p-22 {
+        font-size: 1.375vw;
+    }
+
+    .p-24 {
+        font-size: 1.5vw;
+    }
+
+    .p-26 {
+        font-size: 1.625vw;
+    }
+
+    .p-28 {
+        font-size: 1.75vw;
+    }
+
+    .p-30 {
+        font-size: 1.875vw;
+    }
+
+    .p-32 {
+        font-size: 2vw;
+    }
+
+    .p-34 {
+        font-size: 2.125vw;
+    }
+
+    .p-36 {
+        font-size: 2.25vw;
+    }
+
+    .p-38 {
+        font-size: 2.375vw;
+    }
+
+    .p-40 {
+        font-size: 2.5vw;
+    }
+
+    .p-42 {
+        font-size: 2.625vw;
+    }
+
+    .p-44 {
+        font-size: 2.75vw;
+    }
+
+    .p-46 {
+        font-size: 2.875vw;
+    }
+
+    .p-48 {
+        font-size: 3vw;
+    }
+
+    .p-50 {
+        font-size: 3.125vw;
+    }
+}
+
+/* **************************** */
+/* SHORTCUTS STYLES */
+/* **************************** */
+.pa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.3s all ease-in-out;
+}
+
+.pr {
+    position: relative;
+}
+
+/* **************************** */
+/* TESTING */
+/* **************************** */
+
+.testing,
+.test {
+    background-color: lightyellow;
+    border: 1px dashed orange;
+}
+
+/* **************************** */
+
+#content-area {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: #263249;
+    padding: 3%;
+}
+
+#main-page-content {
+    display: flex;
+    flex-flow: column;
+    flex-grow: 0.95;
+    position: relative;
+    top: 5%;
+}
+
+.title-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0885ec;
+    color: rgb(255, 255, 255);
+    background-color: #384a6b;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 8%;
+    padding-top: 0.5%;
+    z-index: 1;
+}
+
+.chart-wrapper {
+    flex-grow: 1;
+    position: relative;
+    width: 100%;
+    /* top: 40%;
+    height: 54%;
+    display: flex;
+    position: absolute;
+    padding: 1% 0 1% 3%; */
+}
+
+#chart {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+#chart svg {
+    position: absolute;
+}

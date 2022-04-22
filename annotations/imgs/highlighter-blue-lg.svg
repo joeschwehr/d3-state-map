@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="40">
+    <defs>
+        <style>
+            .a {
+                fill:rgba(76, 137, 253, .7);
+            }
+            .b {
+                fill:#fff;
+            }
+        </style>
+    </defs>
+    <g transform="translate(-172 -191)">
+        <rect class="a" width='25' height='40' transform="translate(172 191)"/>
+        <rect class="b" width="1" height="40" transform="translate(172 191)"/>
+    </g>
+</svg>
