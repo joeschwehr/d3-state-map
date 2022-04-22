@@ -353,8 +353,8 @@ class drawMap {
             // SHOW POPUP
             setTimeout(() => {
                 document.getElementById(`${locationName}-popup`).setAttribute('opacity', 1);
-                document.getElementById(`${locationName}-popup`).style.pointerEvents =
-                    'all';
+                // document.getElementById(`${locationName}-popup`).style.pointerEvents =
+                //     'all';
                 document.getElementById(`${locationName}-popup`).classList.add(`active`);
                 document.getElementById(`${locationName}-arrow`).style.opacity = 1;
             }, 700);
