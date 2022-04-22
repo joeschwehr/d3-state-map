@@ -97,6 +97,7 @@ class drawMap {
             // append popup
             vis.states
                 .append('foreignObject')
+                .style('pointer-events', 'none')
                 .attr('id', `${key}-popup`)
                 .attr('class', 'state-popup')
                 .attr('opacity', 0)
