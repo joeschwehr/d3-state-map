@@ -159,7 +159,7 @@
         async function makeMap() {
             const electionResults = await getElectionData();
             const stateResults = getStateResults(electionResults);
-            usMap = new drawMap('chart', electionResults, stateResults);
+            usMap = new drawMap('chart', stateResults);
         }
 
         makeMap();

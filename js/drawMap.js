@@ -2,16 +2,12 @@
 //******************************************************************************************//
 
 class drawMap {
-    constructor(element, data, statesData) {
+    constructor(element, statesData) {
         // turn off loading text
         document.querySelector("#loading").style.opacity = 0;
 
         this.element = element;
-        this.results = data;
         this.statesData = statesData;
-
-        // console.log('election results', this.results)
-        console.log('statesData', this.statesData)
 
         this.draws = 0;
         this.usStates = usStates;
